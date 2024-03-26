@@ -40,8 +40,9 @@ export function App() {
     const notesArray = notes.filter(note =>{
       return note.id != id
     })
-
-    setNotes([notesArray])
+    console.log(notesArray);
+    
+    setNotes([...notesArray])
     localStorage.setItem('notes', JSON.stringify(notesArray) )
 
   }

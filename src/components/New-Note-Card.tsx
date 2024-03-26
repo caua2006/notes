@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, MouseEventHandler, useState } from 'react'
 import { toast } from 'sonner'
 
 let speechRecognition: SpeechRecognition | null = null
@@ -22,6 +22,7 @@ export function NewNoteCard({onNoteCreated}: NewNoteCardProps){
       setContent(event.target.value)
       if(!event.target.value) setShouldShowOnBoarding(true)
     }
+
     function handleSaveNote(event:FormEvent<HTMLFormElement>){
       event.preventDefault()
 
@@ -36,6 +37,8 @@ export function NewNoteCard({onNoteCreated}: NewNoteCardProps){
 
       toast.success('Nota criada com sucesso')
     }
+
+
     function handleStartRecording(){
       const isSpeechRecognitionAPIAvailable = 'SpeechRecognition' in window 
         || 'webkitSpeechRecognition' in window
