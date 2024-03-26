@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
-import { ChangeEvent, FormEvent, MouseEventHandler, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { toast } from 'sonner'
 
 let speechRecognition: SpeechRecognition | null = null
@@ -23,7 +23,7 @@ export function NewNoteCard({onNoteCreated}: NewNoteCardProps){
       if(!event.target.value) setShouldShowOnBoarding(true)
     }
 
-    function handleSaveNote(event:FormEvent<HTMLFormElement>){
+    function handleSaveNote(event:FormEvent<HTMLButtonElement>){
       event.preventDefault()
 
 
